@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(71, 96, 71);
+}
+
+
+.startingbox {
+    width: 600px;
+    background:rgb(212, 224, 202);
+    position: absolute;
+    top: 40%;
+    left: 25%;
+}
