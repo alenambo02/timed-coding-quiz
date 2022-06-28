@@ -20,39 +20,30 @@
         <button id="startbutton">Start</button>
     </div>
 
-    <main class="quizbox"></main>
+    <main class= "deletes" id="quizbox">
         <header>
-            <h2 class="highscores" style="text-align:left;">High Scores</h2>
-            <h2 class="timer" style="text-align:right;"></h2>  
+            <h2 id="highscores" style="text-align:left;">High Scores</h2>
+            <h2 id="timer" style="text-align:right;"></h2>  
         </header>
-        <section id="questionsbox">
-            <div class="questionContainer">Question</div>
-            <div class="answersContainer">
-                <button id="choice1"></button>
-                <button id="choice2"></button>
-                <button id="choice3"></button>
-                <button id="choice4"></button>
-
-
+        <section id="questionsection">
+            <div class ="questiontext" id="questions">Question:</div>
+            <div id="answers">
+                <button class="choicebutton" id="choice1">Choice 1</button>
+                <button class="choicebutton" id="choice2">Choice 2</button>
+                <button class="choicebutton" id="choice3">Choice 3</button>
+                <button class="choicebutton" id="choice4">Choice 4</button>
             </div>
         
            
         </section>
         
         
-        <section id="buttonstonav">
-            <button id="contbutton">Continue</button>
+        <section id="buttonstoadvance">
+            <button id="countinuebutton">Continue</button>
             <button id="finshedbutton">Finsh</button>
         </section>
+    </main>
         </body>
-
-
-
-
-
-
-
-
 
 
     <script src="assets/script.js"></script>
