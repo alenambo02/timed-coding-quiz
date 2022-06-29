@@ -3,12 +3,15 @@ var timerElement = document.querySelector("#timer");
 var highScores = document.querySelector("#highscores");
 var questionContainer = document.querySelector("#questionsection")
 var questionsElement = document.querySelector("#question");
-var answersElement = document.querySelector("#answerbuttons");
+var answersElement = document.querySelector(".choices");
 var nextButton = document.querySelector("#countinuebutton")
 var startingBox = document.querySelector(".startingbox");
 var quizBox = document.querySelector("#quizbox");
+var answerButton = document.querySelector("#answer-button");
+var finishButton =document.querySelector("#finished")
 
-let shuffleQ, currentQuestionIndex
+var shuffleQ 
+var currentQuestionIndex
 
 startButton.addEventListener("click", startsQuiz)
 nextButton.addEventListener("click", () => {
@@ -39,10 +42,9 @@ function startsQuiz() {
     shuffleQ = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     quizBox.classList.remove("deletes")
-    goesToNextQ();
-    startTimer();
+    goesToNextQ()
+    startTimer()
 }
-
 
 function goesToNextQ() {
     cleanSlate()
@@ -51,37 +53,25 @@ function goesToNextQ() {
 
 function displayQuestion(question) {
 questionsElement.innerText = question.question
-question.answers.forEach(answer => {
+question.answers.forEach(answers => {
     var button = document.createElement("button")
-    button.innerText = answer.text
-    button.classList.add("choicebutton")
-    if (answer.correct) {
-        button.dataset.correct = answer.correct
+    button.innerText = answers.text
+    button.classList.add("btn")
+    if (answers.correct) {
+        button.dataset.correct = answers.correct
     }
     button.addEventListener("click", selectsAnswer)
-    answersElement.appendChild(button)
-
+    answerButton.appendChild(button)
 })
 }
-function cleanSlate() {
-    nextButton.classList.add("deletes")
-    while (answersElement.firstChild) {
-        answersElement.removeChild
-        (answersElement.firstChild)
+
+function selectsAnswer() {
+  
+    if (shuffleQ.length > currentQuestionIndex + 1) {
+        nextButton.classList.remove("deletes")
     }
-} 
-
-function selectsAnswer(e) {
-    var choiceButton = e.target
-    var correct = choiceButton.dataset.correct
-
-}
-if (shuffleQ.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove("deletes")
-} else {
-    startButton.innerText = "Restart"
-    startButton.classList.remove("deletes")
-}
+       return finishButton;
+    }
 
 var questions = [{
     question: "Which of the following is not a popup box in Javascript?",
@@ -94,7 +84,7 @@ var questions = [{
   },
     {
     question: "Which of the following is a tag?",
-    answer: [
+    answers: [
         { text: "div", correct: true },
         { text: "array", correct: false },
         { text: "alert", correct: false },
@@ -103,7 +93,7 @@ var questions = [{
   }, 
     {  
   question: "Which of the following is used to style a webpage?",
-    answer: [
+    answers: [
         { text: "emojis", correct: true },
         { text: "functions", correct: false },
         { text: "methods", correct: false },
@@ -111,26 +101,12 @@ var questions = [{
     ]
   }   
 ]  
-  
-  
-  
-  
 
 
-
-
-
-
-
-
-
-
-/*function shuffleQ(myQuestion) {
-    currentIndex = array.length, randomIndex;
-    while (currentIndex !=0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-       [myQuestions[currentIndex], myQuestions[randomIndex]] =
-       [myQuestions[randomIndex], myQuestions[currentIndex]]; 
+function cleanSlate() {
+    nextButton.classList.add("deletes")
+    while (answerButton.firstChild) {
+        answerButton.removeChild
+        (answerButton.firstChild)
     }
-    return myQuestions; */
+}
