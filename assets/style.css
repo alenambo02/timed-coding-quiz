@@ -26,7 +26,7 @@ section {
     box-shadow: 10% rgb(237, 240, 207);
 }
 
-.questiontext {
+.questionlook {
     font-size: 35px;
     padding: 10px;
     font-weight: bolder;
@@ -44,6 +44,3 @@ section {
     display: none;
 }
 
-#buttonstoadvance {
-    position: relative;
-}
