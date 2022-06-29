@@ -33,7 +33,7 @@ section {
     padding: 10px;
     font-weight: bolder;
 }
-
+/*styles answer buttons*/
 button {
     padding: 20px;
     box-shadow: 5% rgb(237, 240, 207);
@@ -41,7 +41,7 @@ button {
     width: 200px;
     margin: 20px;
 }
-
+/*allows me to remove and add a button*/
 .deletes {
     display: none;
 }
